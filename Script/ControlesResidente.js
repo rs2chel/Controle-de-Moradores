@@ -2,6 +2,8 @@ var residents = [];
 var inputValue = "";
 var residentIdEdit = null
 
+// EU MUDEI ALGUMAS COISAS AQUIIIIIIIIIIIIIIIIIIIIIII
+
 function cleanModal() {
   //limpando os valores do modal
   document.querySelector("#recipient-name").value = "";
@@ -113,31 +115,7 @@ function creatTable(listResidents) {
   document.querySelector(".tbody").innerHTML = tr;
 }
 
-function getResidents() {
-  $.ajax({
-    url: "https://localhost:7213/Residenties/GetAllResidenties",
-    type: "GET",
-    success: function (response) {
-      residents = response;
-      creatTable(response);
 
-      console.log(response);
-    },
-    error: function (xhr, status, error) { },
-  });
-}
-
-function postResident(resident) {
-  $.ajax({
-    url: "https://localhost:7213/Residenties/AddResidenties",
-    type: "POST",
-    contentType: "application/json",
-    data: JSON.stringify(resident),
-
-    success: function (response) { },
-    error: function (xhr, status, error) { },
-  });
-}
 
 
 
@@ -250,8 +228,6 @@ function closeModaldelete() {
 
 
 
-
-
 function creatSelect() {
   var option = ''
 
@@ -302,3 +278,30 @@ $("#fname").on("keyup", function () {
       $(this).toggle(text.includes(searchValue)); 
     })
 });
+
+
+function getResidents() {
+  $.ajax({
+    url: "https://localhost:7213/Residenties/GetAllResidenties",
+    type: "GET",
+    success: function (response) {
+      residents = response;
+      creatTable(response);
+
+      console.log(response);
+    },
+    error: function (xhr, status, error) { },
+  });
+}
+
+function postResident(resident) {
+  $.ajax({
+    url: "https://localhost:7213/Residenties/AddResidenties",
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(resident),
+
+    success: function (response) { },
+    error: function (xhr, status, error) { },
+  });
+}
