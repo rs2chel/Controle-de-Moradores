@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TABELA RESIDENTE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="../Script/jquery.js"></script>
+
+    <link href="../Styles/ControleResidentes.css" rel="stylesheet">
+</head>
+
+<body class='containerBody' onload="getResidents(),creatSelect()">
+
+
+    <select class='buttonOptionAutoMarks' id="optionSelect" name="optionSelect">
+
+    </select>
+
+
+
+
+    <div class="containerNav">
+        <div class="containerSearch">
+            <label for="fname"></label>
+            <input placeholder="Buscar" class="search" type="text" id="fname" name="fname">
+
+            <button #id="buttonAdd" type="button" class="buttonCreatResident" data-bs-toggle="modal"
+                data-bs-target="#residentModal" data-bs-whatever="@getbootstrap"></button>
+
+            <button class="buttonRefresh" onclick="getResidents()"></button>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="residentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" class="modalAddResidente">
+                <div class="modal-header">
+                    <h1 class="modal-title" id="exampleModalLabel">NOVO PROPRIETARIO</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body-create">
+                    <div class="container text-center" class="containereditResidente">
+                        <div class="row">
+                            <div class="col">
+                                <div class="BoxInputadd">
+                                    <label for="recipient-name" class="col-form-label">NOME PROPRIETARIO:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+
+                            </div>
+                            <div class="col">
+
+                                <div class="BoxInputadd">
+                                    <label for="recipient-name" class="col-form-label">DATA NASCIMENTO:</label>
+                                    <input type="date" class="form-control" id="recipient-data">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+
+                                <div class="BoxInputadd">
+                                    <label for="recipient-name" class="col-form-label">BLOCO:</label>
+                                    <input type="text" class="form-control" id="recipient-bloco" checkFields()>
+                                </div>
+
+                            </div>
+                            <div class="col">
+
+                                <div class="BoxInputadd">
+                                    <label for="recipient-name" class="col-form-label">APARTAMENTO:</label>
+                                    <input type="text" class="form-control" id="recipient-ap">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+
+                                <div class="BoxInputadd">
+                                    <label for="recipient-name" class="col-form-label">CPF:</label>
+                                    <input type="text" class="form-control" id="recipient-cpf">
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="buttonsEdits" type="button" class="btn btn-secondary" onclick="cleanModal()"
+                        data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="buttonsEdits" onclick="sendData()"
+                        class="btn btn-primary">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="modal fade" id="editResidentModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title" id="editModalLabel">EDITAR PROPRIETARIO</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body-edit">
+                    <div class="container-edit-text-center">
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="editRecipientName" class="col-form-label">NOME PROPRIETARIO:</label>
+                                    <input type="text" class="form-control" id="editRecipientName">
+                                </div>
+
+                            </div>
+                            <div class="col">
+
+                                <div class="mb-3">
+                                    <label for="editRecipientdata" class="col-form-label">DATA NASCIMENTO:</label>
+                                    <input type="date" class="form-control" id="editRecipientData">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+
+                                <div class="mb-3">
+                                    <label for="editRecipientBloco" class="col-form-label">BLOCO:</label>
+                                    <input type="text" class="form-control" id="editRecipientBloco" checkFields()>
+                                </div>
+
+                            </div>
+                            <div class="col">
+
+                                <div class="mb-3">
+                                    <label for="editRecipientAP" class="col-form-label">APARTAMENTO:</label>
+                                    <input type="text" class="form-control" id="editRecipientAP">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+
+                                <div class="mb-3">
+                                    <label for="editRecipientCPF" class="col-form-label">CPF:</label>
+                                    <input type="text" class="form-control" id="editRecipientCPF">
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="confirmDeleteMensagem()" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop" class="buttonsEdits">
+                        EXCLUIR
+                    </button>
+                    <button type="button" onclick="CreatUpdateResidents()" class="buttonsEdits">VEICULO</button>
+                    <button type="button" class="buttonsEdits" onclick="cleanModal()"
+                        data-bs-dismiss="modal">FECHAR</button>
+                    <button type="button" onclick="CreatUpdateResidents()" class="buttonsEdits">CONFIRMAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="conteinner_table">
+        <table class="table table-striped table-hover">
+            <thead>
+
+                <th scope="col" onclick="sortTable()">NOME</th>
+                <th scope="col" onclick="sortTable()">DATA NASCIMENTO</th>
+                <th scope="col" onclick="sortTable()">CPF</th>
+                <th scope="col" onclick="sortTable()">BLOCO</th>
+                <th scope="col" onclick="sortTable()">APARTAMENTO</th>
+                <th scope="col" onclick="sortTable()">EDITAR</th>
+
+            </thead>
+
+            <tbody class="tbody" id="tableResidents">
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal mensagem confirmacao de excluir residente-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title" id="staticBackdropLabel"> EXCLUIR RESIDENTE?
+
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="DeleteResidentMessage">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
+                    <button type="button" onclick="deleteResident()" class="btn btn-primary">EXCLUIR</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal extra grande -->
+
+
+    <div class="modal fade bd-example-modal-xl" id="modalInfoResidente" tabindex="-1" role="dialog"
+        aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title" id="exampleModalLabel">INFORMAÇÕES RESIDENTE</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body-info">
+                    <div class="container-info-text-center">
+                        <div class="row">
+                            <div class="col">
+                                <div class="BoxInputInfo">
+                                    <label for="editRecipientName" class="col-form-label">NOME PROPRIETARIO:</label>
+                                    <input type="text" class="form-control" id="editRecipientName">
+                                </div>
+
+                            </div>
+                            <div class="col">
+
+                                <div class="BoxInputInfo">
+                                    <label for="editRecipientdata" class="col-form-label">DATA NASCIMENTO:</label>
+                                    <input type="date" class="form-control" id="editRecipientData">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+
+                                <div class="BoxInputInfo">
+                                    <label for="editRecipientBloco" class="col-form-label">BLOCO:</label>
+                                    <input type="text" class="form-control" id="editRecipientBloco" checkFields()>
+                                </div>
+
+                            </div>
+                            <div class="col">
+
+                                <div class="BoxInputInfo">
+                                    <label for="editRecipientAP" class="col-form-label">APARTAMENTO:</label>
+                                    <input type="text" class="form-control" id="editRecipientAP">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+
+                                <div class="BoxInputInfo">
+                                    <label for="editRecipientCPF" class="col-form-label">CPF:</label>
+                                    <input type="text" class="form-control" id="editRecipientCPF">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="../Script/ControlesResidente.js"></script>
+</body>
+
+</html>

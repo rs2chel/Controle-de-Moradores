@@ -1,0 +1,324 @@
+/*EDITANDO O ESTILO GERAL */
+
+*{
+    box-sizing: border-box;
+    background-color: rgba(255, 192, 203, 0.388);
+}
+
+/*EDITANDO O ESTILO  NAV BAR */
+
+.containerBody{
+    width: 100%;
+    height: 100%;
+    display: table;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    background-color: rgba(255, 192, 203, 0.246)
+}
+.containerNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ab808458;
+    height: 3.5em;
+    width: 100%;
+    margin-bottom: 1em;
+    box-shadow: 0px 0px 10px 1px #000000;
+    margin-top: 0.15em;
+}
+.containerSearch{
+    
+    border-radius: 2%;
+    background-color: rgba(20, 111, 167, 0);
+    margin: 10%  !important;
+    display: flex;
+    align-items: center;  
+    justify-content: space-evenly;
+    width: 60%;
+    
+    height: 100%;
+}
+.search{
+    border: none;
+    
+    padding: 1%;
+    height: 2em;
+    width: 70%;
+    border-radius:1em;
+    box-shadow: 0px 0px 2px 0px #000000;
+    background-color: rgba(245, 217, 233, 0.759);
+}
+::placeholder {
+    color: rgba(238, 173, 207, 0.879);
+    font-size: 20px;
+    text-transform: uppercase;  
+}
+
+.buttonCreatResident {
+    background-color:transparent;
+    background-image: url("../icons/adicionarUsuario.png");
+    background-size: cover; /* Para garantir que a imagem se ajuste ao botão */
+    width: 2em;
+    height:2em;
+    border: none;
+}
+
+.buttonCreatResident:hover {
+    width: 2.1em;
+    height:2.1em;
+    
+}
+.BoxInputadd{
+    margin: 0;
+    width: 13em;
+    background: none;
+}
+.containerSearch .buttonRefresh {
+    background-color: transparent;
+    background-image: url("../icons/recarregar.png");
+    background-size: cover; /* Para garantir que a imagem se ajuste ao botão */
+    width: 2em;
+    height:2em;
+    border: none;
+    
+}
+.containerSearch .buttonRefresh:hover {
+    
+    transform: scale(1.1) rotate(-60deg);
+    cursor: pointer;
+    
+}
+
+/* EDITANDO O ESTILO DA  TABELA  */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 192, 203, 0.388);
+    box-shadow: 0px 0px 2px 0px #000000;
+}
+
+.table th, .table td {
+   font-family: 'Courier New', Courier, monospace;
+   height: 10%;
+   text-align: center;
+   color: rgb(234, 87, 87);
+}
+
+.table th{
+    background-color: rgba(255, 126, 147, 0.413);
+    cursor: pointer;
+    text-decoration-color: #dfce5f;
+}
+
+.table th:hover{
+    color: #fffefe;
+    background-color: rgba(219, 56, 75, 0.413);
+    cursor: pointer;
+    box-shadow: 1px 1px 1px 1px #e00f0f;
+    border: solid 0.13em #7f17177d;
+}
+
+table .trHover:hover{
+    background-color: rgba(220, 112, 124, 0.413);
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 2px #e00f0f;
+    text-decoration-color: #000000;
+    border: solid 0.13em #db61617d;
+}
+
+.table td {
+    background-color: rgba(255, 192, 203, 0.388);
+    color: #800c0c7f;
+    font-size: 1.2em;
+}
+
+.conteinner_table {
+    margin:  auto   !important;
+    justify-content: center;
+    align-items: center;  
+    width: 80%;
+    box-shadow: 0px 0px 2px 0px #000000;
+
+}
+.table {
+    vertical-align: middle  ;
+    text-align: center;
+} 
+
+.tbody td .buttonedit {
+    background-color: transparent;
+    background-image: url("../icons/iconEdit.png");
+    background-size: cover; /* Para garantir que a imagem se ajuste ao botão */
+    width: 1.5em;
+    height:1.5em;
+    border: none;
+    cursor: pointer;
+}
+
+.tbody td .buttonedit:hover {
+    transform: scale(1.1) rotate(-40deg);
+    cursor: pointer;
+}
+
+
+/* butom invisil de escolher o modelo da montadora do veiculo    */
+.buttonOptionAutoMarks{
+    display: none;
+}
+
+
+/* EDITANDO MODAL DE EDITAR RESIDENTE   */
+
+
+.containereditResidente{
+    background-color: rgba(246, 2, 2, 0.897);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: none;
+}
+.buttonsEdits{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    box-shadow: 0.5px 0.5px 1px 0.5px #c96a6a;
+    border: inset 0.1em #ff8787;
+    color: #cd9191;
+    border-radius: 1.3em;
+    align-items: center ;
+    width: 6.3em;
+    height: 2em ;
+    background-color: rgba(243, 193, 202, 0.388);
+    
+}
+.buttonsEdits:hover{
+    color: #800c0c7f;
+    border: none;
+    background-color: rgba(255, 195, 204, 0.788);
+    cursor: pointer;
+    box-shadow: 1px 1px 2px 1px #c96a6a;
+   
+}
+
+.containereditResidente .containerEdit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    border-radius: 1em;
+    box-shadow: 0.5px 0.5px 1px 0.5px #c96a6a;
+}
+
+.modal-body-edit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20em;
+    width: 100%;
+    box-sizing: content-box;
+    background-color: rgba(255, 154, 170, 0.388);
+}
+
+.mb-3{
+    width: 13em;
+    background: none;
+ }
+
+/* EDITANDO MODAL INFORMAÇÕES RESIDENTE  */
+
+.tbody td .Buttoninfo:hover {
+    transform: scale(1.1) rotate(-40deg);
+
+}
+
+.tbody td .Buttoninfo {
+    background-color: transparent;
+    background-image: url("../icons/infoIcon.png");
+    background-size: cover; /* Para garantir que a imagem se ajuste ao botão */
+    width: 1.5em;
+    height:1.5em;
+    border: none;
+    cursor: pointer;
+    margin-left: 1em;  
+
+}
+.container-edit-text-center{
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+    background-color: transparent;
+}
+
+.modal-body-info{
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    box-sizing: content-box;
+    background-color: rgba(251, 183, 194, 0.595);
+  
+}
+
+.container-info-text-center{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+    background-color: transparent;
+    
+}
+
+.BoxInputInfo{
+    margin: 2%;
+    width: 30em;
+   background: none;
+}
+
+
+
+
+/* EDITANDO ESTILOS DOS  MODAIS DE FORMA GERAL */
+.col{
+    padding: 0px;
+    display: flex;
+    justify-content:baseline;
+    align-items: center;
+    box-sizing: content-box;
+    background-color: transparent;
+    margin:0.5em 1em ;
+}
+
+.modal-title{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
+    color: rgb(128, 12, 12);
+    background: none;
+}
+
+.col-form-label{
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+    justify-content:baseline;
+    align-items: center;
+    font-size: 1.2em;
+    color: #800c0cfb;
+    background: none;
+}
+
+.row{
+    display: flex;
+    background: none;
+    
+}
