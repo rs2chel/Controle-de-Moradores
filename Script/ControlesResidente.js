@@ -1,7 +1,7 @@
 var residents = [];
 var inputValue = "";
-var residentIdEdit = null
-
+var residentIdEdit = null;
+var veiculos =[];
 // EU MUDEI ALGUMAS COISAS AQUIIIIIIIIIIIIIIIIIIIIIII
 
 function cleanModal() {
@@ -18,6 +18,17 @@ function cleanModal() {
   document.querySelector("#recipient-cpf").style.borderColor = "";
   document.querySelector("#recipient-bloco").style.borderColor = "";
   document.querySelector("#recipient-ap").style.borderColor = "";
+}
+
+
+function cleanModalVeiculo() {
+  //limpando os valores do modal
+  document.querySelector("#recipient-ano-fabricacao").value ="";
+  document.querySelector("#recipient-placa").value = "";
+  document.querySelector("#recipient-proprietario").value = "";
+  document.querySelector("#selectMarca").value=0;
+
+  // limpando as bordas vermelhas do modal
 }
 
 function closeModal() {
@@ -129,6 +140,16 @@ function confirmDeleteMensagem() {
   document.querySelector(".DeleteResidentMessage").innerHTML = p;
 }
 
+function infoRecidents(residentId) {
+  console.log("info resicidentes", residentId)
+  $("#modalInfoResidente").modal("show");
+   p = "";
+  var opcoesResidentinfo = residents.find((r) => r.id == residentId);
+  p += `<p> INFORMAÇÕES ${opcoesResidentinfo.name}</p>`.toUpperCase();
+  document.querySelector(".info-name").innerHTML = p;
+  p ="";
+}
+
 
 
 //function deleteUser(delUserId){
@@ -225,6 +246,14 @@ function closeModaldelete() {
   }
 }
 
+function closeModalVeiculo() {
+  // fechando o modal
+  const modalElement = document.getElementById("veiculoModal");
+  const modalInstance = bootstrap.Modal.getInstance(modalElement);
+  if (modalInstance) {
+    modalInstance.hide();
+  }
+}
 
 
 
@@ -233,7 +262,7 @@ function creatSelect() {
 
   var options = [{
     AutomakersId: 0,
-    Name: ''
+    Name: 'Escolha'
   },
   {
     AutomakersId: 1,
@@ -255,19 +284,14 @@ function creatSelect() {
   for (var count = 0; options.length > count; count++) {
     option +=
       `
-        <option onclick="notClick()" id="${options[count].AutomakersId}">
+        <option onclick="notClick()" class="conteinerAutomakers" id="${options[count].AutomakersId}">
             ${options[count].Name}
         </option>
       `
   }
-  document.querySelector("#optionSelect").innerHTML = option;
+  document.querySelector("#selectMarca").innerHTML = option;
 };
 
-function infoRecidents(residentId) {
-  console.log("info resicidentes")
-  $("#modalInfoResidente").modal("show");
-  
-}
 
 
 
@@ -305,3 +329,20 @@ function postResident(resident) {
     error: function (xhr, status, error) { },
   });
 }
+
+
+function addVeiculos() {
+  
+    var veiculo = {
+      placa: document.querySelector("#recipient-placa").value,
+      anoFabricacao: document.querySelector("#recipient-ano-fabricacao").value,
+      idProprietario: residentIdEdit,
+      Marca: document.querySelector("#selectMarca").value,
+    }
+    console.log(veiculo);
+    veiculos.push(veiculo);
+    cleanModalVeiculo()
+    closeModalVeiculo();
+}
+
+

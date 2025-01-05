@@ -2,7 +2,7 @@
 
 *{
     box-sizing: border-box;
-    background-color: rgba(255, 192, 203, 0.388);
+    
 }
 
 /*EDITANDO O ESTILO  NAV BAR */
@@ -14,21 +14,21 @@
     justify-content: center;
     align-self: center;
     align-items: center;
-    background-color: rgba(255, 192, 203, 0.246)
 }
+
 .containerNav{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ab808458;
+    background-color: #fdfdfd2a;
     height: 3.5em;
     width: 100%;
     margin-bottom: 1em;
     box-shadow: 0px 0px 10px 1px #000000;
     margin-top: 0.15em;
 }
+
 .containerSearch{
-    
     border-radius: 2%;
     background-color: rgba(20, 111, 167, 0);
     margin: 10%  !important;
@@ -36,22 +36,37 @@
     align-items: center;  
     justify-content: space-evenly;
     width: 60%;
-    
     height: 100%;
 }
+
 .search{
     border: none;
-    
-    padding: 1%;
+    outline: none;
+    padding: 0.7em;
     height: 2em;
     width: 70%;
-    border-radius:1em;
-    box-shadow: 0px 0px 2px 0px #000000;
-    background-color: rgba(245, 217, 233, 0.759);
+    border-radius:1em;    
+    background-color: rgba(255, 255, 255, 0.759);
 }
+
+
+.focus-input:focus {
+    box-shadow: 2px 0px 3px 2px #eae6aac0;
+    border: 0 none;
+    outline: 0;
+}
+
+.form-control:focus {
+    box-shadow: 2px 0px 3px 2px #e8a6a6c0;
+    border: 0 none;
+    outline: 0;
+}
+
 ::placeholder {
-    color: rgba(238, 173, 207, 0.879);
-    font-size: 20px;
+    color: rgba(0, 0, 0, 0.822);
+    font-size: 1em;
+    text-transform: uppercase;  
+    font-size: 1em;
     text-transform: uppercase;  
 }
 
@@ -70,10 +85,33 @@
     
 }
 .BoxInputadd{
-    margin: 0;
-    width: 13em;
+    margin:0;
+    width: 13.5em;
     background: none;
 }
+#selectMarca{
+    width: 13.5em;
+    outline: none;
+    border: solid 0.1em #9d9d9d12;
+    margin: 0;
+    border-radius: 0.5em;   
+    align-items: center;
+}
+#selectMarca:hover{
+    background-color: rgba(237, 190, 190, 0.181);
+    background-color: rgba(226, 192, 192, 0.181);
+    cursor: pointer;
+    box-shadow: 0px 0px 2px 2px #e8a6a6c0;
+}
+.form-control:hover{
+    box-shadow: 0px 0px 2px 2px #e8a6a6c0;
+    cursor: pointer;
+    background-color: rgba(245, 177, 177, 0.159);
+}
+.conteinerAutomakers:hover{
+    background-color: rgba(245, 177, 177, 0.159);
+}
+
 .containerSearch .buttonRefresh {
     background-color: transparent;
     background-image: url("../icons/recarregar.png");
@@ -95,43 +133,44 @@
 .table {
     width: 100%;
     border-collapse: collapse;
-    background-color: rgba(255, 192, 203, 0.388);
-    box-shadow: 0px 0px 2px 0px #000000;
+    background-color: rgb(240, 235, 235);
+    box-shadow: 0px 0px 10px 2px #878778;
 }
 
 .table th, .table td {
    font-family: 'Courier New', Courier, monospace;
    height: 10%;
    text-align: center;
-   color: rgb(234, 87, 87);
+   color: rgb(136, 6, 6);
 }
 
 .table th{
-    background-color: rgba(255, 126, 147, 0.413);
+    color:#f2f2f2;
+    background-color: rgb(0, 0, 0);
     cursor: pointer;
-    text-decoration-color: #dfce5f;
 }
 
 .table th:hover{
-    color: #fffefe;
-    background-color: rgba(219, 56, 75, 0.413);
+    color: #060606;
+    background-color: rgb(255, 255, 255);
     cursor: pointer;
-    box-shadow: 1px 1px 1px 1px #e00f0f;
-    border: solid 0.13em #7f17177d;
+    box-shadow:0px 0px 4px 4px #e3e3d9;
 }
 
 table .trHover:hover{
-    background-color: rgba(220, 112, 124, 0.413);
+    background-color: rgb(90, 91, 91);
     cursor: pointer;
-    box-shadow: 2px 2px 2px 2px #e00f0f;
-    text-decoration-color: #000000;
-    border: solid 0.13em #db61617d;
+    box-shadow: 0px 0px 4px 4px #fdfbfb;
+    
+   
 }
 
 .table td {
-    background-color: rgba(255, 192, 203, 0.388);
-    color: #800c0c7f;
-    font-size: 1.2em;
+    padding: 0px 0px  0px 10px;
+    background-color: rgba(255, 255, 255, 0.491);
+    color: #040303b1;
+    font-size: 1.7em;
+    
 }
 
 .conteinner_table {
@@ -148,11 +187,12 @@ table .trHover:hover{
 } 
 
 .tbody td .buttonedit {
+    margin: 0.2em;
     background-color: transparent;
     background-image: url("../icons/iconEdit.png");
     background-size: cover; /* Para garantir que a imagem se ajuste ao botão */
-    width: 1.5em;
-    height:1.5em;
+    width: 1em;
+    height:1em;
     border: none;
     cursor: pointer;
 }
@@ -162,11 +202,6 @@ table .trHover:hover{
     cursor: pointer;
 }
 
-
-/* butom invisil de escolher o modelo da montadora do veiculo    */
-.buttonOptionAutoMarks{
-    display: none;
-}
 
 
 /* EDITANDO MODAL DE EDITAR RESIDENTE   */
@@ -185,6 +220,7 @@ table .trHover:hover{
     z-index: 1;
     display: none;
 }
+
 .buttonsEdits{
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
@@ -198,13 +234,13 @@ table .trHover:hover{
     background-color: rgba(243, 193, 202, 0.388);
     
 }
+
 .buttonsEdits:hover{
     color: #800c0c7f;
     border: none;
     background-color: rgba(255, 195, 204, 0.788);
     cursor: pointer;
-    box-shadow: 1px 1px 2px 1px #c96a6a;
-   
+    box-shadow: 1px 1px 2px 1px #c96a6a; 
 }
 
 .containereditResidente .containerEdit{
@@ -215,16 +251,18 @@ table .trHover:hover{
     height: 50%;
     border-radius: 1em;
     box-shadow: 0.5px 0.5px 1px 0.5px #c96a6a;
+    
 }
 
 .modal-body-edit{
+    
     display: flex;
     justify-content: center;
     align-items: center;
     height: 20em;
     width: 100%;
     box-sizing: content-box;
-    background-color: rgba(255, 154, 170, 0.388);
+    background-color: rgba(235, 201, 201, 0.218);
 }
 
 .mb-3{
@@ -240,18 +278,19 @@ table .trHover:hover{
 }
 
 .tbody td .Buttoninfo {
+    margin: 0.5em;
     background-color: transparent;
     background-image: url("../icons/infoIcon.png");
     background-size: cover; /* Para garantir que a imagem se ajuste ao botão */
-    width: 1.5em;
-    height:1.5em;
+    width: 1em;
+    height:1em;
     border: none;
     cursor: pointer;
     margin-left: 1em;  
 
 }
-.container-edit-text-center{
-    margin: 10px;
+.container-edit-text-center, .container-edit-text-center{
+    margin: 0.8em;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -280,14 +319,60 @@ table .trHover:hover{
     
 }
 
-.BoxInputInfo{
+.BoxInputInfo, .buttonOptionAutoMarks{
     margin: 2%;
     width: 30em;
    background: none;
 }
+.buttonOptionAutoMarks{
+    margin: 2%;
+    height: 2em;
+    width: 11em;
+    background: white;
+}
+.DeleteResidentMessage{
+    margin:  0.5em 0  0 1em  ;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
+    color: rgb(8, 7, 7);
+   
+}
+.modal-content{
+    background: #f0e8e8;
+    
+}
+.modalInfo-footer{
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    width: 100%;
+    border-radius: 0  0 1em 1em;
+    box-sizing: content-box;
+    background-color: rgb(255, 255, 255);
+}
+
+ body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #37303032;
+    
+}
+.modal-header , .modal-footer{
+    height: 2rem;
+    width:auto;
+    box-sizing: content-box;
+    justify-content: space-around;
+    background: white
+    
+}
 
 
-
+.modal-contentInfo{
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+}
 
 /* EDITANDO ESTILOS DOS  MODAIS DE FORMA GERAL */
 .col{
@@ -303,7 +388,7 @@ table .trHover:hover{
 .modal-title{
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.5em;
-    color: rgb(128, 12, 12);
+    color: rgb(242, 110, 110);
     background: none;
 }
 
@@ -313,7 +398,7 @@ table .trHover:hover{
     justify-content:baseline;
     align-items: center;
     font-size: 1.2em;
-    color: #800c0cfb;
+    color: #000000fb;
     background: none;
 }
 
