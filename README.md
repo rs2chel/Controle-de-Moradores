@@ -1,4 +1,4 @@
-# Controle-de-Moradores : Sistema de Gestão de Residentes e Veículo
+# Controle de Moradores : Sistema de Gestão de Residentes e Veículo
 
 Este projeto implementa um sistema simples de gerenciamento de residentes e veículos. Ele permite adicionar, editar, excluir e visualizar informações sobre residentes e seus veículos associados. As interações acontecem por meio de modais para entrada de dados e de uma tabela que exibe as informações dos residentes.
 
